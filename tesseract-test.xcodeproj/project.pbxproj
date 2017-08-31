@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		61526E991F5814FB008F5CBC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61526E981F5814FB008F5CBC /* main.cpp */; };
+		61526EA01F583AFC008F5CBC /* libtesseract.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 61526E9F1F583AFC008F5CBC /* libtesseract.3.dylib */; };
+		61526EA41F5864CF008F5CBC /* liblept.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 61526EA31F5864CF008F5CBC /* liblept.5.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		61526E951F5814FB008F5CBC /* tesseract-test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "tesseract-test"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61526E981F5814FB008F5CBC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		61526E9F1F583AFC008F5CBC /* libtesseract.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtesseract.3.dylib; path = ../../../../usr/local/Cellar/tesseract/3.05.01/lib/libtesseract.3.dylib; sourceTree = "<group>"; };
+		61526EA31F5864CF008F5CBC /* liblept.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblept.5.dylib; path = ../../../../usr/local/Cellar/leptonica/1.74.4_1/lib/liblept.5.dylib; sourceTree = "<group>"; };
+		61526EA51F586AE9008F5CBC /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = ../../Desktop/test.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61526EA41F5864CF008F5CBC /* liblept.5.dylib in Frameworks */,
+				61526EA01F583AFC008F5CBC /* libtesseract.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +48,9 @@
 		61526E8C1F5814FB008F5CBC = {
 			isa = PBXGroup;
 			children = (
+				61526EA51F586AE9008F5CBC /* test.png */,
+				61526EA31F5864CF008F5CBC /* liblept.5.dylib */,
+				61526E9F1F583AFC008F5CBC /* libtesseract.3.dylib */,
 				61526E971F5814FB008F5CBC /* tesseract-test */,
 				61526E961F5814FB008F5CBC /* Products */,
 			);
@@ -207,6 +217,15 @@
 		61526E9D1F5814FB008F5CBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"/usr/local/Cellar/tesseract/3.05.01/include/**",
+					"/usr/local/Cellar/leptonica/1.74.4_1/include/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/tesseract/3.05.01/lib,
+					/usr/local/Cellar/leptonica/1.74.4_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -214,6 +233,11 @@
 		61526E9E1F5814FB008F5CBC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/tesseract/3.05.01/lib,
+					/usr/local/Cellar/leptonica/1.74.4_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

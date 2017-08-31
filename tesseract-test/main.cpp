@@ -6,10 +6,36 @@
 //  Copyright © 2017 CY. All rights reserved.
 //
 
+#include <tesseract/baseapi.h>
+#include <tesseract/strngs.h>
+#include <leptonica/allheaders.h>
 #include <iostream>
 
+using namespace std;
+const char* inputImage = "/Users/cslzy/Desktop/test.png";
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    char *outText;
+    
+    tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
+    // Initialize tesseract-ocr with English, without specifying tessdata path
+    if (api->Init(NULL, "eng")) {
+        fprintf(stderr, "Could not initialize tesseract.\n");
+        exit(1);
+    }
+    
+    // Open input image with leptonica library
+    Pix *image = pixRead(inputImage);
+    
+    api->SetImage(image);
+    // Get OCR result
+    outText = api->GetUTF8Text();
+    printf("OCR output:\n%s", outText);
+    
+    // Destroy used object and release memory
+    api->End();
+    delete [] outText;
+    pixDestroy(&image);
+    
     return 0;
 }
