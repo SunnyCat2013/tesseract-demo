@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     char *outText;
     
     tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
-    // Initialize tesseract-ocr with English, without specifying tessdata path
+    // Initialize tesseract-ocr with simple Chinese character, without specifying tessdata path
     if (api->Init(NULL, "chi_sim")) {
         fprintf(stderr, "Could not initialize tesseract.\n");
         exit(1);
