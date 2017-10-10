@@ -12,14 +12,14 @@
 #include <iostream>
 
 using namespace std;
-const char* inputImage = "/Users/cslzy/Desktop/test.png";
+const char* inputImage = "/Users/cslzy/jd/picture-recognition/test/register.jpg";
 int main(int argc, const char * argv[]) {
     
     char *outText;
     
     tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
     // Initialize tesseract-ocr with English, without specifying tessdata path
-    if (api->Init(NULL, "eng")) {
+    if (api->Init(NULL, "chi_sim")) {
         fprintf(stderr, "Could not initialize tesseract.\n");
         exit(1);
     }
