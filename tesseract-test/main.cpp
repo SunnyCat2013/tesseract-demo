@@ -10,10 +10,15 @@
 #include <tesseract/strngs.h>
 #include <leptonica/allheaders.h>
 #include <iostream>
-
+#include <stdio.h>
+#include <string.h>
 using namespace std;
-const char* inputImage = "/Users/cslzy/jd/picture-recognition/test/register.jpg";
 int main(int argc, const char * argv[]) {
+    // get image file's path from argument
+    char *inputImage = (char*) malloc (1000);
+    cout<<argv[1]<<endl;
+    strcpy(inputImage, argv[1]);
+    cout<<inputImage<<endl;
     
     char *outText;
     
